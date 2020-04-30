@@ -4,11 +4,10 @@
     {
         public override void Change(Order order, OrderState state)
         {
-            if (state.GetType().Equals(typeof(CompletedState)))
+            if(state is CompletedState)
             {
                 order.CurrentState = new CompletedState();
                 order.Message = "State changed successfully";
-                
             }
             else
             {
